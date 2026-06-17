@@ -3,6 +3,10 @@ name = "import-1p-to-pass"
 version = "0.1.0"
 edition = "2024"
 description = "Import a 1Password .1pux export into pass (passwordstore.org)"
+repository = "https://github.com/torifat/import-1p-to-pass"
+homepage = "https://github.com/torifat/import-1p-to-pass"
+license = "MIT"
+readme = "README.md"
 
 [[bin]]
 name = "import-1p-to-pass"
@@ -17,3 +21,8 @@ zip = { version = "2", default-features = false, features = ["deflate"] }
 
 [dev-dependencies]
 tempfile = "3"
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"

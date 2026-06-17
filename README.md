@@ -10,6 +10,23 @@ Import a 1Password **Unencrypted Export** (`.1pux`) into
 Unlike 1Password's `.1pif`/`.csv` exports, `.1pux` preserves custom fields, TOTP
 secrets, and file attachments — and this tool maps all of them into pass.
 
+## Install
+
+Prebuilt binaries are published for macOS and Linux (x86_64 and arm64) on every
+release. The tool shells out to `pass` and `gpg` at runtime, so install those too.
+
+```sh
+# Homebrew (macOS / Linux):
+brew install torifat/tap/import-1p-to-pass
+
+# Or the install script (downloads the right prebuilt binary):
+curl --proto '=https' --tlsv1.2 -LsSf \
+  https://github.com/torifat/import-1p-to-pass/releases/latest/download/import-1p-to-pass-installer.sh | sh
+
+# Or from source with a Rust toolchain:
+cargo install --git https://github.com/torifat/import-1p-to-pass
+```
+
 ## How it works
 
 The `.1pux` file is a ZIP containing `export.data` (a JSON tree of
